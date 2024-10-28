@@ -20,7 +20,7 @@ if script_tag:
     json_array = json.loads(json_data_str)
     pret = json_array['ad']['ad']['price']['regularPrice']['value']
     valuta = json_array['ad']['ad']['price']['regularPrice']['currencyCode']
-
+    firma = json_array['ad']['breadcrumbs'][3]['label']
     date_anunt = json_array['ad']['ad']['params']
     nr_km = None; model = None; combustibil = None; capacitate_cilindrica = None; an = None
     for data in date_anunt:
@@ -34,7 +34,7 @@ if script_tag:
             capacitate_cilindrica = data['normalizedValue']
         elif data['key'] == 'petrol':
             combustibil = data['normalizedValue']
-    print(model + ' ' + str(an))
+    print(firma + ' ' + model + ' ' + str(an))
     print(capacitate_cilindrica + ' cm3 ' + combustibil)
     print(nr_km + ' km')
     print(str(pret) + ' ' + valuta)
